@@ -1,0 +1,120 @@
+.main_div{
+  /* position: relative; */
+}
+
+.main_div .main_theme{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 44px;
+  margin-bottom: 30px;
+  color: rgb(51, 51, 51);
+  margin-top: 150px;
+}
+.main_title{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 26px;
+  text-align: justify;
+  color: rgb(51, 51, 51);
+  margin-bottom: 30px;
+  word-spacing: -2px;
+}
+
+.pasition_abs{
+  position: absolute;
+  width: 44% !important;
+  height: 500px !important;
+  right: 0;
+  top: 110px;
+}
+.pasition_abs img{
+  width: 100% !important;
+  height: 500px !important;
+}
+.pasition_color{
+  position: absolute;
+  background-color: rgba(45, 134, 252, 0.9);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+}
+.slider_title{
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin-left:150px;
+}
+.slider_title:hover{
+  cursor: pointer;
+  text-shadow: rgba(255, 255, 255, 1) 0px 0px 25px;
+}
+
+.slider_element img{
+  height: 450px;
+}
+/*  */
+@media screen and (max-width:1200px) and (min-width:992px) {
+  .pasition_abs{
+    width: 40% !important;
+    height: 424px !important;
+  }
+  .pasition_abs img{
+    width: 100% !important;
+    height: 424px !important;
+  }
+  .slider_title{
+    font-size: 22px;
+  }
+  .slider_element img{
+    height: 400px;
+  }
+
+  .main_div .main_theme{
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 25px;
+    margin-top: 80px;
+  }
+  .main_title{
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 25px;
+    word-spacing: -2px;
+  }
+  
+}
+
+@media screen and (max-width:992px) {
+  .pasition_abs{
+    display: none;
+  }
+  .pasition_abs img{
+    display: none;
+  }
+  .slider_title{
+    display: none;
+  }
+
+  .slider_element img{
+    height: 400px;
+  }
+
+  .main_div .main_theme{
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 25px;
+    margin-top: 150px;
+  }
+  .main_title{
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 25px;
+    word-spacing: -2px;
+  }
+  .slider_element{
+    display: none;
+  }
+}
