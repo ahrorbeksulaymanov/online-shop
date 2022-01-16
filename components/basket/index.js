@@ -70,6 +70,7 @@ const BasketItems = () => {
                     timer: 1500
                   })
               dispatch({ type: CLEAR_DATA })
+              sessionStorage.setItem("countProducts", JSON.stringify([]));
             }
           })
     }
