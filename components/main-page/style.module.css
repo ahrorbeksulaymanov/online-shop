@@ -25,13 +25,13 @@
 .pasition_abs{
   position: absolute;
   width: 44% !important;
-  height: 500px !important;
+  height: 470px !important;
   right: 0;
   top: 110px;
 }
 .pasition_abs img{
   width: 100% !important;
-  height: 500px !important;
+  height: 470px !important;
 }
 .pasition_color{
   position: absolute;
