@@ -9,6 +9,8 @@ import {
 } from "reactstrap";
 import classes from "./style.module.css";
 import { HiOutlineShoppingBag } from "react-icons/hi";
+import { GoThreeBars } from "react-icons/go";
+import { VscChromeClose } from "react-icons/vsc";
 import Link from "next/link"
 import { useSelector } from "react-redux";
 
@@ -40,9 +42,7 @@ function HeaderForShop() {
             </div>
           </div>
         </Link>
-        <NavbarToggler 
-          onClick={()=>{setIsOpen(!isOpen)}}
-        />
+        <NavbarToggler onClick={()=>{setIsOpen(!isOpen)}} >{isOpen ? <GoThreeBars /> : <VscChromeClose />}</NavbarToggler>
         <Collapse
           navbar
           className={`${isOpen && "isOpen"} justify-content-between`}

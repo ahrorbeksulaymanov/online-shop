@@ -4,8 +4,13 @@ import KactalogProducts from "../components/katalogProduct";
 import MainPage from "../components/main-page";
 import OfferSpesial from "../components/speacialOffers";
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    document.oncontextmenu = new Function("return false;");
+  }, [])
   return (
     <div style={{overflowX:"hidden"}}>
       <Head>
@@ -17,6 +22,16 @@ export default function Home() {
       <FirstPage />
       <OfferSpesial />
       <KactalogProducts />
+      <ToastContainer position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
     </div>
   );
 }

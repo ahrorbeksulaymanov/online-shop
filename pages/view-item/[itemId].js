@@ -1,12 +1,40 @@
 import { useRouter } from "next/router";
 import { allProduct } from "../../components/data";
 import Head from "next/head";
+import { useDispatch, useSelector } from "react-redux";
+import { ADD_ITEM } from "../../redux/actions";
+import { MdAddShoppingCart } from "react-icons/md";
+import { toast } from 'react-toastify';
+import Link from "next/link"
 
 const ViewItem = () => {
 
     const router = useRouter();
+    const dispatch = useDispatch()
+    const data = allProduct?.filter(i => i.id == router.query.itemId)[0];
 
-    const data = allProduct?.filter(i => i.id == router.query.itemId)[0]
+    const addToCard = (id, item) => {
+        dispatch({ type: ADD_ITEM, data: id })
+        const localDAta = JSON.parse(sessionStorage.getItem("countProducts")) || [];
+        localDAta.unshift({id:item?.id, count:item?.count})
+        sessionStorage.setItem("countProducts", JSON.stringify(localDAta))
+        toast(
+            <div>
+              <p style={{ fontWeight: "bold", fontSize: "18px" }} className="m-0">Товар добавлен в корзину</p>
+              <div className="d-flex justify-content-start align-items-center m-0">
+                <img style={{ width: "100px" }} src={item.image.src} alt="" />
+                <div>
+                  <p className="m-0">{item.name}</p>
+                  <p className="m-0 font-weight-bold" style={{ fontWeight: "bold", fontSize: "16px" }}>{item.price} ₽</p>
+                </div>
+              </div>
+              <Link href={"/basket"}>
+                <button className="btn btn-danger w-100" style={{ borderRadius: "0" }}>Перейти в корзину</button>
+              </Link>
+            </div>)
+    }
+
+    const products = useSelector((state) => state?.product)
 
     return (
         <div className="container pt-4">
@@ -16,18 +44,20 @@ const ViewItem = () => {
                 <link rel="icon" href="/logo.jpg" />
             </Head>
             <div className="row mt-5 pt-5">
-                <div className="col-sm-6 col-md-5 border p-4 my-3 text-center">
+                <div className="col-lg-5 col-md-6 col-12 border p-4 my-3 text-center">
                     <img src={data?.image?.src} className="" style={{ height: "400px" }} />
                 </div>
-                <div className="col-sm-6 col-md-7 p-4 my-3">
+                <div className="col-lg-7 col-md-6 col-12 p-4 my-3">
                     <p className="p-0 m-0 text-danger">{data?.company}</p>
                     <h3 className="m-0 p-0 fw-bold">{data?.name}</h3>
                     <hr className="mb-0 mt-4" />
                     <h5>{data?.title}</h5>
                     <p style={{ fontSize: "16px" }}>{data?.text}</p>
                     <h3 className="text-danger">{data?.price} ₽</h3>
-                    <button className="btn btn-outline-danger me-2">Back to product</button>
-                    <button className="btn btn-outline-primary">Add to card</button>
+                    <Link href="/">
+                        <button className="btn btn-outline-danger me-2">Back to product</button>
+                    </Link>
+                    <button onClick={() => addToCard(data?.id, data)} disabled={products?.includes(data?.id)} className="btn btn-outline-primary">{products?.includes(data?.id) ? "Added to card" : "Add to card"} <MdAddShoppingCart className="ms-2" /></button>
                 </div>
             </div>
         </div>
