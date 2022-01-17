@@ -42,7 +42,7 @@ function HeaderForShop() {
             </div>
           </div>
         </Link>
-        <NavbarToggler onClick={()=>{setIsOpen(!isOpen)}} >{isOpen ? <GoThreeBars /> : <VscChromeClose />}</NavbarToggler>
+        <NavbarToggler onClick={()=>{setIsOpen(!isOpen)}} >{isOpen ? <VscChromeClose /> : <GoThreeBars /> }</NavbarToggler>
         <Collapse
           navbar
           className={`${isOpen && "isOpen"} justify-content-between`}
@@ -60,7 +60,7 @@ function HeaderForShop() {
             <div className="d-flex align-items-center">
               <div >
                 <p className={classes.nav_number}>(93) 008 55 04</p>
-                <a href="tel:+496170961709">
+                <a href="tel:+998930085504">
                   <button className="btn btn-outline-danger">Заказать звонок</button>
                 </a>
               </div>
