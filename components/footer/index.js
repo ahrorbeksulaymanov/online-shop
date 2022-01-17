@@ -42,7 +42,7 @@ const Footer = () => {
                             <span className="text-light mb-2">Наш телефон</span><br />
                             <a href="tel:+496170961709" className="text-light mb-2" style={{ fontWeight: "700", fontSize: "17px" }}>+998 93 008 55 04</a><br />
                             <span className="text-light mb-2">Наш E-mail</span><br />
-                            <a target="_blank" href="mailto:ahrorsulaymanov2@gmail.com" className="text-light mb-2" style={{ fontWeight: "700", fontSize: "17px" }}>ahrorsulaymanov2 @gmail.com</a><br />
+                            <a target="_blank" href="mailto:ahrorsulaymanov2@gmail.com" className="text-light mb-2" style={{ fontWeight: "700", fontSize: "17px", wordBreak:"break-all" }}>ahrorsulaymanov2@gmail.com</a><br />
                             <span className="text-light mb-2">Наш адрес</span><br />
                             <a href="#" className="text-light mb-2" style={{ fontWeight: "700", fontSize: "17px" }}>Улица Фарход, дом 7</a>
                             <div className="d-flex align-items-center justify-content-end">
